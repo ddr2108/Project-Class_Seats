@@ -3,7 +3,6 @@ import datetime
 import time
 from googlevoice import Voice
 from bs4 import BeautifulSoup
-from pymongo import MongoClient
 import urllib2
 
 ###############################################################################
