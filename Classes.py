@@ -16,7 +16,7 @@ pwd = "5891Deep"
 #Class URL
 base = "https://oscar.gatech.edu/pls/bprod/bwckschd.p_disp_detail_sched?term_in=201402&crn_in="
 CRN = [20191 , 27006, 24834, 29945]
-timer[]
+timer = [0,0,0,0]
 
 ###############################################################################
 ###############################################################################
@@ -33,7 +33,6 @@ def main():
     voice = Voice()
     voice.login(email,pwd)              #Login
     while True:
-<<<<<<< HEAD
         processClass()                   #Process Recieved Messages
         time.sleep(3)
 
@@ -42,9 +41,8 @@ def processClass():
     global timer
 
     #Break each message into words
-    for index in range(1:len(CRN)):
+    for index in range(0,len(CRN)):
         classCRN = CRN[index]
-        print classCRN
         #Send and Receive class data
         url = base + str(classCRN)
         req = urllib2.Request(url)
@@ -55,12 +53,17 @@ def processClass():
         messages = tree.findAll("td","dddefault")     #find all texts and pull data
         for message in messages[3:4]:
             #check if seat available 
-            if int(message.get_text()) > 0:
-                information = str(classCRN) + " is available:\n" + url
+            if int(message.get_text()) > 0 and timer[index] == 0:
+                information = str(classCRN) + " is available"
+                timer[index] = 100
                 sendSMS(information)
+            elif int(message.get_text()) > 0:
+                timer[index] = timer[index] - 1
 
 #send requested data via SMS
 def sendSMS(data):
+    global voice
+
     voice.send_sms(number, data)
 
 if __name__=="__main__":
