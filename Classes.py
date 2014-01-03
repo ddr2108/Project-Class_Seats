@@ -11,11 +11,12 @@ import urllib2
 source = "Deep Datta Roy:"      #holds the number which is the source
 number = "4045148059"           #the actual number
 email = "deepdattaroy8888@gmail.com"    #login info
-pwd = "5891Deep"
+pwd = "####"
 #Class URL
 base = "https://oscar.gatech.edu/pls/bprod/bwckschd.p_disp_detail_sched?term_in=201402&crn_in="
 CRN = [20191 , 27006, 24834, 29945]
 timer = [0,0,0,0]
+timeout = 1800;
 
 ###############################################################################
 ###############################################################################
@@ -54,7 +55,7 @@ def processClass():
             #check if seat available 
             if int(message.get_text()) > 0 and timer[index] == 0:
                 information = str(classCRN) + " is available"
-                timer[index] = 100
+                timer[index] = timeout;
                 sendSMS(information)
             elif int(message.get_text()) > 0:
                 timer[index] = timer[index] - 1
