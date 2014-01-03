@@ -17,6 +17,7 @@ pwd = "5891Deep"
 base = "https://oscar.gatech.edu/pls/bprod/bwckschd.p_disp_detail_sched?term_in=201402&crn_in="
 CRN = [20191 , 27006, 24834, 29945]
 timer[]
+
 ###############################################################################
 ###############################################################################
 
@@ -32,6 +33,7 @@ def main():
     voice = Voice()
     voice.login(email,pwd)              #Login
     while True:
+<<<<<<< HEAD
         processClass()                   #Process Recieved Messages
         time.sleep(3)
 
