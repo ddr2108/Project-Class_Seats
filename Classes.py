@@ -11,7 +11,7 @@ import urllib2
 source = "Deep Datta Roy:"      #holds the number which is the source
 number = "4045148059"           #the actual number
 email = "deepdattaroy8888@gmail.com"    #login info
-pwd = "5891Deep"
+pwd = "####"
 #Class URL
 base = "https://oscar.gatech.edu/pls/bprod/bwckschd.p_disp_detail_sched?term_in=201402&crn_in="
 CRNName = ["Network", "Test", "Mobile Services", "SW DEV", "Net Sec(=/)", "Adv Internet"]
